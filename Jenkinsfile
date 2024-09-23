@@ -57,7 +57,7 @@ podTemplate(
 				
 				echo "I am installing emodpy-malaria from wheel file built from code"
 				def wheelFile = sh(returnStdout: true, script: "find ./dist -name '*.whl'").toString().trim()
-				//def wheelFile = sh(returnStdout: true, script: "python3 ./.github/scripts/get_wheel_filename.py --package-file package_setup.py").toString().trim()
+				//def wheelFile = sh(returnStdout: true, script: "python3 ./.github/scripts/get_wheel_filename.py --package-file setup.py").toString().trim()
 				echo "This is the package file: ${wheelFile}"
 				sh "pip3 install $wheelFile --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple"
 				 
