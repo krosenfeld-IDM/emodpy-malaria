@@ -1,0 +1,105 @@
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to nodes with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Factor","float","0","3.40E+38","1","The multiplier by which to scale the larval habitat availability.",".. code-block:: json
+
+    {
+      ""LarvalHabitatMultiplier"": [
+        {
+          ""Factor"": 0.01,
+          ""Habitat"": ""TEMPORARY_RAINFALL"",
+          ""Species"": ""gambiae""
+        }
+      ]
+    }
+"
+"Habitat","enum","NA","NA","NONE","The name of the habitat for which to specify a larval habitat multiplier. See :doc:`parameter-configuration-larval` parameters for more information. Possible values are:
+
+* NONE (default but not allowed; it must be configured to a habitat type)
+* TEMPORARY_RAINFALL
+* WATER_VEGETATION
+* MARSHY_STREAM
+* HUMAN_POPULATION
+* CONSTANT
+* BRACKISH_SWAMP
+* LINEAR_SPLINE
+* ALL_HABITATS
+",".. code-block:: json
+
+    {
+      ""Habitat"": ""BRACKISH_SWAMP""
+    }
+"
+"Intervention_Name","string","NA","NA","ScaleLarvalHabitat","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""ScaleLarvalHabitat"",
+        ""Intervention_Name"": ""Reduce habitat for Aedes aegypti""
+      }
+    }
+"
+"Larval_Habitat_Multiplier","array of json objects","NA","NA","NA","The value by which to scale the larval habitat availability (specified in **Habitats** in the configuration file) per intervention, across all habitat types, for specific habitat types, or for specific mosquito species within each habitat type. See :doc:`parameter-configuration-larval` parameters for more information.","The following example scales the larval habitat equally across all habitat types and mosquito species.
+
+.. code-block:: json
+
+    {
+      ""LarvalHabitatMultiplier"": [
+        {
+          ""Factor"": 0.02,
+          ""Habitat"": ""ALL_HABITATS"",
+          ""Species"": ""ALL_SPECIES""
+        }
+      ]
+    }
+
+The following example scales the larval habitat only in the temporary rainfall habitat for all mosquito species.
+
+.. code-block:: json
+
+    {
+      ""LarvalHabitatMultiplier"": [
+        {
+          ""Factor"": 0.02,
+          ""Habitat"": ""TEMPORARY_RAINFALL"",
+          ""Species"": ""ALL_SPECIES""
+        }
+      ]
+    }
+
+The following example scales the larval habitat independently for *A. gambiae* in the temporary rainfall habitat and for *A. arabiensis* in the brackish swamp habitat.
+
+.. code-block:: json
+
+    {
+      ""LarvalHabitatMultiplier"": [
+        {
+          ""Factor"": 0.01,
+          ""Habitat"": ""TEMPORARY_RAINFALL"",
+          ""Species"": ""gambiae""
+        },
+        {
+          ""Factor"": 0.02,
+          ""Habitat"": ""BRACKISH_SWAMP"",
+          ""Species"": ""arabiensis""
+        }
+      ]
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information.",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""HasHealthCare:YES""
+    }
+"
+"Species","string","NA","NA","ALL_SPECIES","The name of the species for which to specify a larval habitat multiplier. This must be one of the names specified in the configuration parameter **Vector_Species_Params** or set to ALL_SPECIES.",".. code-block:: json
+
+    {
+      ""Species"": ""arabiensis""
+    }
+"

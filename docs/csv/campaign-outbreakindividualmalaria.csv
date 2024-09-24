@@ -1,0 +1,30 @@
+"Genome_Markers","array of strings","NA","NA","NA","A list of the names of genome marker(s) that represent the genetic components in a strain of an infection.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""OutbreakIndividualMalaria"",
+        ""Antigen"": 0,
+        ""Genome_Markers"": [
+          ""D6"",
+          ""W2""
+        ]
+      }
+    }
+"
+"Ignore_Immunity","boolean","0","1","1","Individuals will be force-infected (with a specific strain) regardless of actual immunity level when set to true (1).",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""Clade"": 0,
+        ""Genome"": 0,
+        ""Ignore_Immunity"": 0,
+        ""class"": ""OutbreakIndividual""
+      }
+    }
+"
+"Incubation_Period_Override","integer","-1","2147480000.0","-1","The incubation period, in days, that infected individuals will go through before becoming infectious. This value overrides the incubation period set in the configuration file. Set to -1 to honor the configuration parameter settings.",".. code-block:: json
+
+    {
+      ""Incubation_Period_Override"": 0
+    }
+"

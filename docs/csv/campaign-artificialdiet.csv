@@ -1,0 +1,50 @@
+"Artificial_Diet_Target","enum","NA","NA","AD_WithinVillage","The targeted deployment of artificial diet. This parameter is required. 
+Possible values are:
+
+* AD_WithinVillage, which is impacted by both **SpaceSpraying** and **SpatialRepellent**
+* AD_OutsideVillage, which is only impacted by **SpaceSpraying**",".. code-block:: json
+
+    {
+      ""Artificial_Diet_Target"": ""AD_WithinVillage""
+    }
+"
+"Attraction_Config","json object","NA","NA","NA","The fraction of vector feeds attracted to the artificial diet. Specify how this effect decays over time using one of the :doc:`parameter-campaign-waningeffects`.",".. code-block:: json
+
+    {
+      ""Attraction_Config"": {
+        ""Initial_Effect"": 0.5,
+        ""Box_Duration"": 100,
+        ""Decay_Time_Constant"": 150,
+        ""class"": ""WaningEffectBoxExponential""
+      }
+    }
+"
+"Cost_To_Consumer","float","0","999999","10","The unit cost per vector control (unamortized).",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 8
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to nodes with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Intervention_Name","string","NA","NA","ArtificialDiet","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""ArtificialDiet"",
+        ""Intervention_Name"": ""Feeding station in node 7""
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information.",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""HasHealthCare:YES""
+    }
+"

@@ -1,0 +1,68 @@
+"Cost_To_Consumer","float","0","999999","8","The unit cost per housing modification (unamortized).",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 8
+    }
+"
+"Insecticides","array of json objects","None","None","[]","An array of objects defining the blocking and killing efficacy of each insecticide.",".. code-block:: json
+
+    {
+      ""Insecticides"": [
+        {
+          ""Insecticide_Name"": ""pyrethroid"",
+          ""Repelling_Config"": {
+            ""Box_Duration"": 300,
+            ""Initial_Effect"": 0.25,
+            ""class"": ""WaningEffectBox""
+          },
+          ""Killing_Config"": {
+            ""Box_Duration"": 300,
+            ""Initial_Effect"": 1.0,
+            ""class"": ""WaningEffectBox""
+          }
+        },
+        {
+          ""Insecticide_Name"": ""carbamate"",
+          ""Repelling_Config"": {
+            ""Box_Duration"": 300,
+            ""Initial_Effect"": 0.25,
+            ""class"": ""WaningEffectBox""
+          },
+          ""Killing_Config"": {
+            ""Box_Duration"": 300,
+            ""Initial_Effect"": 1.0,
+            ""class"": ""WaningEffectBox""
+          }
+        }
+      ]
+    }
+"
+"Intervention_Name","string","NA","NA","MultiInsecticideIRSHousingModification","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""MultiInsecticideIRSHousingModification"",
+        ""Intervention_Name"": ""Indoor DDT spraying""
+      }
+    }
+"
+"Killing_Config","json object","NA","NA","NA","The configuration of killing efficacy and waning for housing modification. Killing is conditional on the vector not being repelled before feeding. Specify how this effect decays over time using one of the :doc:`parameter-campaign-waningeffects`.",".. code-block:: json
+
+    {
+      ""Killing_Config"": {
+        ""Box_Duration"": 3650,
+        ""Initial_Effect"": 0.53429,
+        ""class"": ""WaningEffectBox""
+      }
+    }
+"
+"Repelling_Config","json object","NA","NA","NA","Defines a waning effect that determines the probability that a vector is repelled due to the intervention. Specify how this effect decays over time using one of the :doc:`parameter-campaign-waningeffects`.",".. code-block:: json
+
+    {
+      ""Repelling_Config"": {
+        ""Box_Duration"": 3650,
+        ""Initial_Effect"": 0.0,
+        ""class"": ""WaningEffectBox""
+      }
+    }
+"

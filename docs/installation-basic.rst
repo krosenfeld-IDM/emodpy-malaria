@@ -1,6 +1,6 @@
-=======
-Install
-=======
+========================
+Install |EMODPY_malaria|
+========================
 
 Follow the steps below to install |EMODPY_malaria|.
 

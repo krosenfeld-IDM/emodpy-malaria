@@ -474,5 +474,8 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None),
                        'emodpy': ('https://docs.idmod.org/projects/emodpy/en/latest/', None),
                        'idmtools': ('https://docs.idmod.org/projects/idmtools/en/latest/', None),
                        'emod-malaria': ('https://docs.idmod.org/projects/emod-malaria/en/latest/', None),
-                       'pycomps': ('https://docs.idmod.org/projects/pycomps/en/latest/', None)
+                       'pycomps': ('https://docs.idmod.org/projects/pycomps/en/latest/', None),
+                       'emod-generic': ('https://docs.idmod.org/projects/emod-generic/en/latest/', None),
+                       'emod-hiv': ('https://docs.idmod.org/projects/emod-hiv/en/latest/', None)
                        }
+                       

@@ -1,0 +1,203 @@
+"Cost_To_Consumer","float","0","999999","10","The unit cost per vector control (unamortized).",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 9.0
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of **NodeProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to nodes with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Expiration_Constant","float","0","3.4E+38","6","Each instance will receive this constant/fixed value, in days, for expiration of the trap when **Expiration_Distribution** is set to CONSTANT_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""CONSTANT_DISTRIBUTION"",
+      ""Expiration_Constant"": 8
+    }
+"
+"Expiration_Distribution","enum","NA","NA","NOT_INTIIALIZED","The distribution type to use for setting the expiration of the trap. Each assigned value is a random draw from the distribution. Possible values are:
+
+NOT_INITIALIZED
+    No distribution set.
+CONSTANT_DISTRIBUTION
+    Use the same value for each individual. Set Expiration_Constant.
+UNIFORM_DISTRIBUTION
+    Use a uniform distribution with a given minimum and maximum. Set Expiration_Max and Expiration_Min.
+GAUSSIAN_DISTRIBUTION
+    The distribution is Gaussian (or normal). Values are resampled to ensure >= 0. Set Expiration_Gaussian_Mean and Expiration_Gaussian_Std_Dev.
+EXPONENTIAL_DISTRIBUTION
+    The distribution is exponential with a given mean. Set Expiration_Exponential.
+WEIBULL_DISTRIBUTION
+    Use a Weibull distribution with a given shape and scale. Set Expiration_Kappa and Expiration_Lambda.
+LOG_NORMAL_DISTRIBUTION
+    Use a log-normal distribution with a given mean and standard deviation of the natural log. Set Expiration_Log_Normal_Mu and Expiration_Log_Normal_Sigma.
+POISSON_DISTRIBUTION
+    Use a Poisson distribution with a given mean. Set Expiration_Poisson_Mean.
+DUAL_CONSTANT_DISTRIBUTION
+    Use a distribution where some individuals are set to a value of zero and the rest to a given value. Set Expiration_Proportion_0 and Expiration_Peak_2_Value. This distribution does not use the parameters set for CONSTANT_DISTRIBUTION.
+DUAL_EXPONENTIAL_DISTRIBUTION
+    Use two exponential distributions with given means. Set Expiration_Mean_1, Expiration_Mean_2, and Expiration_Proportion_1. This distribution does not use the parameters set for EXPONENTIAL_DISTRIBUTION.
+",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
+      ""Expiration_Gaussian_Mean"": 4,
+      ""Expiration_Gaussian_Std_Dev"": 1
+    }
+"
+"Expiration_Exponential","float","0","3.4E+38","6","The mean expiration time of the trap, in days,  when **Expiration_Distribution** is set to EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""EXPONENTIAL_DISTRIBUTION"",
+      ""Expiration_Exponential"": 4.25
+    }
+"
+"Expiration_Gaussian_Std_Dev","float","1.18E-38","3.4E+38","1","The standard deviation of the expiration time of the trap, in days, when **Expiration_Distribution** is set to GAUSSIAN_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
+      ""Expiration_Gaussian_Mean"": 4,
+      ""Expiration_Gaussian_Std_Dev"": 1
+    }
+"
+"Expiration_Guassian_Mean","float","0","3.4E+38","6","The mean expiration time of the trap, in days, when **Expiration_Distribution** is set to GAUSSIAN_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""GAUSSIAN_DISTRIBUTION"",
+      ""Expiration_Gaussian_Mean"": 4,
+      ""Expiration_Gaussian_Std_Dev"": 1
+    }
+"
+"Expiration_Kappa","float","1.18E-38","3.4E+38","1","The shape value for the expiration time of the trap, in days, when **Expiration_Distribution** is set to WEIBULL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""WEIBULL_DISTRIBUTION"",
+      ""Expiration_Kappa"": 0.9,
+      ""Expiration_Lambda"": 1.5
+    }
+"
+"Expiration_Lambda","float","1.18E-38","3.4E+38","1","The scale value for the expriation time of the trap, in days, when **Expiration_Distribution** is set to WEIBULL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""WEIBULL_DISTRIBUTION"",
+      ""Expiration_Kappa"": 0.9,
+      ""Expiration_Lambda"": 1.5
+    }
+"
+"Expiration_Log_Normal_Mu","float","-3.40E+38","3.4E+38","6","The mean of the natural log of the expiration time of the trap, in days, when **Expiration_Distribution** is set to LOG_NORMAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""LOG_NORMAL_DISTRIBUTION"",
+      ""Expiration_Log_Normal_Mu"": 9,
+      ""Expiration_Log_Normal_Sigma"": 2
+    }
+"
+"Expiration_Log_Normal_Sigma","float","-3.40E+38","3.4E+38","1","The standard deviation of the natural log of the expiration time of the trap, in days,  when **Expiration_Distribution** is set to LOG_NORMAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""LOG_NORMAL_DISTRIBUTION"",
+      ""Expiration_Log_Normal_Mu"": 9,
+      ""Expiration_Log_Normal_Sigma"": 2
+    }
+"
+"Expiration_Max","float","0","3.4E+38","1","The maximum time to expiration of the trap, in days, when **Expiration_Distribution** is set to UNIFORM_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""UNIFORM_DISTRIBUTION"",
+      ""Expiration_Min"": 2,
+      ""Expiration_Max"": 7
+    }
+"
+"Expiration_Mean_1","float","1.18E-38","3.4E+38","1","The mean of the first exponential distribution in days, when **Exponential_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
+      ""Expiration_Mean_1"": 4,
+      ""Expiration_Mean_2"": 12,
+      ""Expiration_Proportion_1"": 0.2
+    }
+"
+"Expiration_Mean_2","float","1.18E-38","3.4E+38","1","The mean of the second exponential distribution in days, when **Exponential_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
+      ""Expiration_Mean_1"": 4,
+      ""Expiration_Mean_2"": 12,
+      ""Expiration_Proportion_1"": 0.2
+    }
+"
+"Expiration_Min","float","0","3.4E+38","0","The minimum time to expiration of the trap, in days, when **Expiration_Distribution** is set to UNIFORM_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""UNIFORM_DISTRIBUTION"",
+      ""Expiration_Min"": 2,
+      ""Expiration_Max"": 7
+    }
+"
+"Expiration_Peak_2_Value","float","0","3.4E+38","1","The expiration value, in days, to assign to the remaining traps when **Expiration_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""DUAL_CONSTANT_DISTRIBUTION"",
+      ""Expiration_Proportion_0"": 0.25,
+      ""Expiration_Peak_2_Value"": 5
+    }
+"
+"Expiration_Poisson_Mean","float","0","3.4E+38","6","The mean of the expiration time of the trap, in days, when **Expiration_Distribution** is set to POISSON_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""POISSON_DISTRIBUTION"",
+      ""Expiration_Poisson_Mean"": 5
+    }
+"
+"Expiration_Proportion_0","float","0","1","1","The proportion of traps to assign a value of zero days to expiration when **Expiration_Distribution** is set to DUAL_CONSTANT_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""DUAL_CONSTANT_DISTRIBUTION"",
+      ""Expiration_Proportion_0"": 0.25,
+      ""Expiration_Peak_2_Value"": 5
+    }
+"
+"Expiration_Proportion_1","float","0","1","1","The proportion of traps in the first exponential distribution when **Expiration_Distribution** is set to DUAL_EXPONENTIAL_DISTRIBUTION.",".. code-block:: json
+
+    {
+      ""Expiration_Distribution"": ""DUAL_EXPONENTIAL_DISTRIBUTION"",
+      ""Expiration_Mean_1"": 4,
+      ""Expiration_Mean_2"": 12,
+      ""Expiration_Proportion_1"": 0.2
+    }
+"
+"Insecticide_Name","string","NA","NA","UNINITIALIZED STRING","The name of the insecticide defined in  <config.Insecticides>  for this intervention.  If insecticides are being used,  this must be defined as one of those values; if they are not being used this can be empty.  It cannot have a value if you did not configure <config.Insecticides>.",".. code-block:: json
+
+    {
+      ""Insecticide_Name"": ""carbamate""
+    }
+"
+"Intervention_Name","string","NA","NA","SugarTrap","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""SugarTrap"",
+        ""Intervention_Name"": ""Mosquito sugar feeding, nationwide campaign""
+      }
+    }
+"
+"Killing_Config","json object","NA","NA","NA","The configuration for the effects of killing of the targeted stage. Specify how this effect decays over time using one of the :doc:`parameter-campaign-waningeffects`.",".. code-block:: json
+
+    {
+      ""Killing_Config"": {
+        ""Box_Duration"": 3650,
+        ""Initial_Effect"": 0.5,
+        ""class"": ""WaningEffectBox""
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information.",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""HasHealthCare:YES""
+    }
+"

@@ -1,9 +1,9 @@
-=====================
-Install prerequisites
-=====================
+=======
+Install
+=======
 
 First, ensure the following prerequisites are met before following the install 
-instructions in :doc:`installation-basic`.
+instructions.
 
 * Windows 10 Pro or Enterprise, or Linux
 
@@ -17,5 +17,7 @@ instructions in :doc:`installation-basic`.
     index-url = https://packages.idmod.org/api/pypi/pypi-production/simple
 
 .. toctree::
+    :titlesonly:
 
+    emod/install-overview
     installation-basic

@@ -1,0 +1,354 @@
+"Acquisition_Blocking_Immunity_Decay_Rate","float","0","1","0.001","The rate at which acquisition-blocking immunity decays after the initial period indicated by the base acquisition-blocking immunity offset. Only used when **Enable_Immunity** and **Enable_Immune_Decay** parameters are set to true (1).",".. code-block:: json
+
+    {
+      ""Acquisition_Blocking_Immunity_Decay_Rate"": 0.05
+    }
+"
+"Acquisition_Blocking_Immunity_Duration_Before_Decay","float","0","45000","0","The number of days after infection until acquisition-blocking immunity begins to decay. **Enable_Immunity** and **Enable_Immune_Decay** must be set to true (1).",".. code-block:: json
+
+    {
+      ""Acquisition_Blocking_Immunity_Duration_Before_Decay"": 10
+    }
+"
+"Antibody_Capacity_Growth_Rate","float","0","1","0.1","The maximum daily rate of specific antibody capacity increase. Antibody production begins at a capacity of 0.3., and hyperimmunity results at 0.4. The actual growth rate tends to be lower and is a function of antigen concentrations.",".. code-block:: json
+
+    {
+      ""Antibody_Capacity_Growth_Rate"": 0.09
+    }
+"
+"Antibody_CSP_Decay_Days","float","1","3.40E+38","90","Exponential decay time for the circumsporozoite protein (CSP) antibody concentration (in days) when boosted above natural maximum concentrations.",".. code-block:: json
+
+    {
+      ""Antibody_CSP_Decay_Days"": 80
+    }
+"
+"Antibody_CSP_Killing_Inverse_Width","float","1.00E-0","1000000","1.5","The inverse width of the sigmoidal sporozoite killing function of circumsporozoite protein (CSP) antibody concentration.",".. code-block:: json
+
+    {
+      ""Antibody_CSP_Killing_Inverse_Width"": 1.7
+    }
+"
+"Antibody_CSP_Killing_Threshold","float","1.00E-0","1000000","10","The threshold value on circumsporozoite protein (CSP) antibody concentration for sporozoite killing.",".. code-block:: json
+
+    {
+      ""Antibody_CSP_Killing_Threshold"": 20
+    }
+"
+"Antibody_IRBC_Kill_Rate","double","NA","NA","2","The scale factor multiplied by antibody level to produce the rate of clearance of the infected red blood cell (IRBC) population.",".. code-block:: json
+
+    {
+      ""Antibody_IRBC_Kill_Rate"": 1.595
+    }
+"
+"Antibody_Memory_Level","float","0","0.35","0.2","The limiting level of antibody capacity that remains after a prolonged absence of a specific antigen. The antibody capacity decays to this level gradually after infection is cleared. The decay rate in antibody capacity is set so that hyperimmunity is lost within 4 months, and capacity continues to decay to this level. The antibody memory level is relevant for year-scale dynamics, but not for long-term dynamics (10-20 years).",".. code-block:: json
+
+    {
+      ""Antibody_Memory_Level"": 0.3
+    }
+"
+"Antibody_Stimulation_C50","float","0.1","10000","10","The concentration of an antigen, measured in IRBC/ul at which growth in antibody capacity against the antigen increases at half the maximum rate specified by **Antibody_Capacity_Growth_Rate**.",".. code-block:: json
+
+    {
+      ""Antibody_Stimulation_C50"": 30,
+      ""Antibody_Capacity_Growth_Rate"": 0.09
+    }
+"
+"Antigen_Switch_Rate","double","NA","NA","2.00E-09","The antigenic switching rate per infected red blood cell per asexual cycle. See **Parasite_Switch_Type** for different switching patterns.",".. code-block:: json
+
+    {
+      ""Antigen_Switch_Rate"": 5e-09
+    }
+"
+"Cytokine_Gametocyte_Inactivation","float","0","1","0.02","The strength of inflammatory response inactivation of gametocytes.",".. code-block:: json
+
+    {
+      ""Cytokine_Gametocyte_Inactivation"": 0.0167
+    }
+"
+"Enable_Immunity","boolean","0","1","1","Controls whether or not an individual has protective immunity after an infection clears.
+",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1
+    }
+"
+"Enable_Initial_Susceptibility_Distribution","boolean","0","1","0","Controls whether or not individuals in the population have immunity at the beginning of the simulation. If set to 0, individuals are not initialized with immunity but may acquire immunity. If set to 1, you must indicate the type of distribution to use for immunity in the configuration parameter **Susceptibility_Initialization_Distribution_Type** and the distribution values in the demographics file. **Enable_Immunity** must be set to 1.",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Initial_Susceptibility_Distribution"": 1,
+      ""Susceptibility_Initialization_Distribution_Type"": ""DISTRIBUTION_SIMPLE""
+    }
+"
+"Enable_Maternal_Antibodies_Transmission","boolean","0","1","0","Controls whether or not mothers pass antibodies to their infants. When enabled, you must set **Maternal_Antibodies_Type**,**Maternal_Antibody_Protection**, and **Maternal_Antibody_Decay_Rate**. **Enable_Birth** must be set to 1.",".. code-block:: json
+
+    {
+      ""Enable_Maternal_Antibodies_Transmission"": 1,
+      ""Maternal_Antibodies_Type"": ""SIMPLE_WANING"",
+      ""Maternal_Antibody_Protection"": 0.23,
+      ""Maternal_Antibody_Decay_Rate"": 0.03
+    }
+"
+"Enable_Maternal_Protection","boolean","0","1","0","Controls whether or not mothers pass immunity on to their infants. Setting to 1 (true) enables maternal protection as defined by **Maternal_Protection_Type**. **Enable_Birth** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Maternal_Protection"": 1,
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL""
+    }
+"
+"Erythropoiesis_Anemia_Effect","float","0","1000","3.5","The exponential rate of increased red-blood-cell production from reduced red-blood-cell availability.",".. code-block:: json
+
+    {
+      ""Erythropoiesis_Anemia_Effect"": 3
+    }
+"
+"Falciparum_MSP_Variants","integer","0","1000","100","The number of distinct :term:`merozoite surface protein (MSP)` variants for *P. falciparum* malaria in the overall parasite population in the simulation, not necessarily in an individual.",".. code-block:: json
+
+    {
+      ""Falciparum_MSP_Variants"": 4
+    }
+"
+"Falciparum_Nonspecific_Types","integer","0","1000","20","The number of distinct non-specific types of *P. falciparum* malaria.",".. code-block:: json
+
+    {
+      ""Falciparum_Nonspecific_Types"": 92
+    }
+"
+"Falciparum_PfEMP1_Variants","integer","0","100000","1000","The number of distinct :term:`Plasmodium falciparum erythrocyte membrane protein 1 (PfEMP1)` variants for *P. falciparum* malaria in the overall parasite population in the simulation.",".. code-block:: json
+
+    {
+      ""Falciparum_PfEMP1_Variants"": 300
+    }
+"
+"Fever_IRBC_Kill_Rate","float","0","1000","0.15","The maximum kill rate for infected red blood cells due to the inflammatory innate immune response. As fever increases above 38.5 degrees Celsius, the kill rate becomes successively higher along a sigmoidal curve approaching this rate.
+",".. code-block:: json
+
+    {
+      ""Fever_IRBC_Kill_Rate"": 1.4
+    }
+"
+"Immune_Threshold_For_Downsampling","float","0","1","0","The threshold on acquisition immunity at which to apply immunity-dependent downsampling; individuals who are more immune than this this threshold are downsampled. A value of 1 is equivalent to full susceptibility and 0 is equivalent to full immunity. If the acquisition immunity modifier is larger than the threshold, no downsampling occurs. **Individual_Sampling_Type** must set to ADAPTED_SAMPLING_BY_IMMUNE_STATE.",".. code-block:: json
+
+    {
+      ""Relative_Sample_Rate_Immune"": 0.1,
+      ""Immune_Threshold_For_Downsampling"": 0.5,
+      ""Individual_Sampling_Type"": ""ADAPTED_SAMPLING_BY_IMMUNE_STATE""
+    }
+"
+"Innate_Immune_Variation_Type","enum","NA","NA","NONE","The type of innate immunity on which to apply individual-level variation. 
+Possible values are: 
+
+NONE
+    No variation in innate immunity between individuals.  
+PYROGENIC_THRESHOLD
+    Applies individual variation using the susceptibility distribution values set in **SusceptibilityDistributionFlag**, **SusceptibilityDistribution1**, and **SusceptibilityDistribution2** in the demographics file to the average threshold for infected red blood cells resulting in fever, as set in **Pyrogenic_Threshold**.  
+PYROGENIC_THRESHOLD_VS_AGE
+    Ignores the demographic file settings and applies an age-dependent threshold for infected red blood cells resulting in fever.
+CYTOKINE_KILLING
+    Applies individual variation using the susceptibility distribution values set in **SusceptibilityDistributionFlag**, **SusceptibilityDistribution1**, and **SusceptibilityDistribution2** in the demographics file to the effectiveness of cytokines in killing infected red blood cells, as set in **Fever_IRBC_Kill_Rate**.",".. code-block:: json
+
+    {
+      ""Innate_Immune_Variation_Type"": ""PYROGENIC_THRESHOLD""
+    }
+"
+"Maternal_Antibodies_Type","enum","NA","NA","OFF","The type of maternal antibody protection.  **Enable_Maternal_Antibodies_Transmission** must be set to 1 (true).
+Possible values are: 
+
+OFF
+    No maternal antibody protection provided.
+SIMPLE_WANING
+    The protection from maternal antibodies is a function of the configured maximum fraction protection (**Maternal_Antibody_Protection**) and the age of the child (through **Maternal_Antibody_Decay_Rate**), but also of the transmission-intensity in the simulation. In particular, the protection is modified by a factor corresponding to the fraction of PfEMP1 antigenic variants to which possible mothers (14 to 45-year-old females) have been exposed in their lifetimes.
+CONSTANT_INITIAL_IMMUNITY
+    Protection is independent of acquired immunity in possible mothers.",".. code-block:: json
+
+    {
+      ""Maternal_Antibodies_Type"": ""CONSTANT_INITIAL_IMMUNITY""
+    }
+"
+"Maternal_Antibody_Decay_Rate","float","0","3.40E+38","0.01","The decay rate per day in protection from maternal antibodies. **Maternal_Antibodies_Type** must be set to SIMPLE_WANING or CONSTANT_INITIAL_IMMUNITY.",".. code-block:: json
+
+    {
+      ""Maternal_Antibodies_Type"": ""SIMPLE_WANING"",
+      ""Maternal_Antibody_Decay_Rate"": 0.01,
+      ""Maternal_Antibody_Protection"": 0.1327
+    }
+"
+"Maternal_Antibody_Protection","float","0","1","0.1","The strength of protection from maternal antibodies as a multiple of full antibody killing effect. **Maternal_Antibodies_Type** must be set to SIMPLE_WANING or CONSTANT_INITIAL_IMMUNITY.",".. code-block:: json
+
+    {
+      ""Maternal_Antibodies_Type"": ""SIMPLE_WANING"",
+      ""Maternal_Antibody_Decay_Rate"": 0.01,
+      ""Maternal_Antibody_Protection"": 0.1327
+    }
+"
+"Maternal_Linear_Slope","float","0.0001","1","0.01","Slope parameter describing the rate of waning for maternal protection, must be positive. The per-day increase in susceptibility. **Maternal_Protection_Type** must be set to LINEAR_FRACTIONAL or LINEAR_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL"",
+      ""Maternal_Linear_SusZero"": 0.45,
+      ""Maternal_Linear_Slope"": 0.02
+    }
+"
+"Maternal_Linear_SusZero","float","0","1","0.2","The initial level of maternal protection at age 0, given as susceptibility. A value of 0.0 implies total protection, a value of 1.0 implies no protection. **Maternal_Protection_Type** must be set to LINEAR_FRACTIONAL or LINEAR_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL"",
+      ""Maternal_Linear_SusZero"": 0.45,
+      ""Maternal_Linear_Slope"": 0.02
+    }
+"
+"Maternal_Protection_Type","enum","NA","NA","NONE","The type of maternal protection afforded to infants. **Enable_Maternal_Protection** must be set to 1 (true). Possible values are:
+
+NONE 
+    No immune protection is passed on to infants.
+LINEAR
+    Susceptibility is a function of age and governed by a linear equation. Susceptibility = **Maternal_Linear_Slope** * age + **Maternal_Linear_SusZero**
+SIGMOID
+    Susceptibility is a function of age and governed by a sigmoidal equation. Susceptibility = **Maternal_Sigmoid_SusInit** + (1.0 - **Maternal_Sigmoid_SusInit**) / * (1.0 + EXP(( **Maternal_Sigmoid_HalfMaxAge** - age) / **Maternal_Sigmoid_SteepFac**))
+
+You must set **Susceptibility_Type** to determine if susceptibility at a particular age is interpreted as a fractional value or the probability of complete immunity or susceptibility.",".. code-block:: json
+
+    {
+      ""Enable_Maternal_Protection"": 1,
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL""
+    }
+"
+"Maternal_Sigmoid_HalfMaxAge","float","-270","3650","180","The age in days that the level of maternal protection is half of its initial value. **Maternal_Protection_Type** must be set to SIGMOID_FRACTIONAL or SIGMOID_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""SIGMOID_BINARY"",
+      ""Maternal_Sigmoid_SteepFac"": 30,
+      ""Maternal_Sigmoid_HalfMaxAge"": 365,
+      ""Maternal_Sigmoid_SusInit"": 0.0002
+    }
+"
+"Maternal_Sigmoid_SteepFac","float","0.1","1000","30","The steepness factor describing the rate of waning for maternal protection, must be positive. Small values imply rapid waning.**Maternal_Protection_Type** must be set to SIGMOID_FRACTIONAL or SIGMOID_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""SIGMOID_BINARY"",
+      ""Maternal_Sigmoid_SteepFac"": 30,
+      ""Maternal_Sigmoid_HalfMaxAge"": 365,
+      ""Maternal_Sigmoid_SusInit"": 0.0002
+    }
+"
+"Maternal_Sigmoid_SusInit","float","0","1","0","The initial level of maternal protection at age -INF, given as susceptibility. A value of 0.0 implies total protection, a value of 1.0 implies no protection. **Maternal_Protection_Type** must be set to SIGMOID_FRACTIONAL or SIGMOID_BINARY.",".. code-block:: json
+
+    {
+      ""Maternal_Protection_Type"": ""SIGMOID_BINARY"",
+      ""Maternal_Sigmoid_SteepFac"": 30,
+      ""Maternal_Sigmoid_HalfMaxAge"": 365,
+      ""Maternal_Sigmoid_SusInit"": 0.0002
+    }
+"
+"Max_MSP1_Antibody_Growthrate","float","0","1","0.02","The maximum increase in MSP1 antibody capacity during each asexual cycle. The higher this value, the sooner early clearances are observed and the earlier the parasite density envelope decreases.",".. code-block:: json
+
+    {
+      ""Max_MSP1_Antibody_Growthrate"": 0.045
+    }
+"
+"Min_Adapted_Response","float","0","1","0.02","The minimum level of antibody stimulation to a novel antigen. The value sets the low-range asymptote for antibody capacity growth, which is calculated from **Antibody_Capacity_Growth_Rate** and antigen density, in the presence of any nonzero antigen level.",".. code-block:: json
+
+    {
+      ""Min_Adapted_Response"": 0.01
+    }
+"
+"Mortality_Blocking_Immunity_Decay_Rate","float","0","1","0.001","The rate at which mortality-blocking immunity decays after the mortality-blocking immunity offset period. **Enable_Immune_Decay** must be set to 1.",".. code-block:: json
+
+    {
+      ""Mortality_Blocking_Immunity_Decay_Rate"": 0.1
+    }
+"
+"Mortality_Blocking_Immunity_Duration_Before_Decay","float","0","45000","0","The number of days after infection until mortality-blocking immunity begins to decay. **Enable_Immunity** and **Enable_Immune_Decay** must be set to 1.",".. code-block:: json
+
+    {
+      ""Mortality_Blocking_Immunity_Duration_Before_Decay"": 270
+    }
+"
+"MSP1_Merozoite_Kill_Fraction","double","NA","NA","0.5","The fraction of merozoites inhibited from invading new erythrocytes when MSP1-specific antibody level is 1.",".. code-block:: json
+
+    {
+      ""MSP1_Merozoite_Kill_Fraction"": 0.4364623975644405
+    }
+"
+"Nonspecific_Antibody_Growth_Rate_Factor","float","0","1000","0.5","The factor that adjusts **Antibody_Capacity_Growth_Rate** for less immunogenic surface proteins, called minor epitopes.",".. code-block:: json
+
+    {
+      ""Nonspecific_Antibody_Growth_Rate_Factor"": 0.5
+    }
+"
+"Nonspecific_Antigenicity_Factor","double","NA","NA","0.2","The nonspecific antigenicity factor that adjusts antibody IRBC kill rate to account for IRBCs caused by antibody responses to antigenically weak surface proteins.",".. code-block:: json
+
+    {
+      ""Nonspecific_Antigenicity_Factor"": 0.39192559432597257
+    }
+"
+"Post_Infection_Acquisition_Multiplier","float","0","1","0","The multiplicative reduction in the probability of reacquiring disease. At the time of recovery, the immunity against acquisition is multiplied by **Acquisition_Blocking_Immunity_Decay_Rate** x (1 - **Post_Infection_Acquisition_Multiplier**). **Enable_Immunity** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Immune_Decay"": 1,
+      ""Post_Infection_Acquisition_Multiplier"": 0.9
+    }
+"
+"Post_Infection_Mortality_Multiplier","float","0","1","0","The multiplicative reduction in the probability of dying from infection after getting reinfected. At the time of recovery, the immunity against mortality is multiplied by **Mortality_Blocking_Immunity_Decay_Rate** x (1 - **Post_Infection_Mortality_Multiplier**). **Enable_Immunity** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Immune_Decay"": 1,
+      ""Post_Infection_Mortality_Multiplier"": 0.5
+    }
+"
+"Post_Infection_Transmission_Multiplier","float","0","1","0","The multiplicative reduction in the probability of transmitting infection after getting reinfected. At the time of recovery, the immunity against transmission is multiplied by **Transmission_Blocking_Immunity_Decay_Rate** x (1 - **Post_Infection_Transmission_Multiplier**). **Enable_Immunity** must be set to 1 (true).",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Immunity_Decay"": 1,
+      ""Post_Infection_Transmission_Multiplier"": 0.9
+    }
+"
+"RBC_Destruction_Multiplier","double","NA","NA","9.5","The number of total red blood cells destroyed per infected rupturing :term:`schizont`.",".. code-block:: json
+
+    {
+      ""RBC_Destruction_Multiplier"": 3.291048711
+    }
+"
+"Susceptibility_Initialization_Distribution_Type","enum","NA","NA","DISTRIBUTION_OFF","The method for initializing the susceptibility distribution in the simulated population. **Enable_Initial_Susceptibility_Distribution** must be set to 1 (true). Possible values are: 
+
+DISTRIBUTION_OFF
+    All individuals default to no susceptibility. 
+DISTRIBUTION_SIMPLE
+    Individual susceptibilities are drawn from a distribution whose functional form and parameters are specified in the demographics file in **IndividualAttributes** using  **SusceptibilityDistributionFlag**, **SusceptibilityDistribution1**, and **SusceptibilityDistribution2** (see :ref:`demo-simpledistro` parameters).
+DISTRIBUTION_COMPLEX
+    Individual susceptibilities are drawn from an age-dependent piecewise linear function for each specific antibody in the demographics file (see :ref:`demo-complexdistro` parameters).",".. code-block:: json
+
+    {
+      ""Enable_Immunity"": 1,
+      ""Enable_Initial_Susceptibility_Distribution"": 1,
+      ""Susceptibility_Initialization_Distribution_Type"": ""DISTRIBUTION_COMPLEX""
+    }
+"
+"Susceptibility_Type","enum","NA","NA","FRACTIONAL","Controls implementation of an individual's susceptibility. Currently only relevant to **Maternal_Protection_Type** parameter. Possible values are:
+
+FRACTIONAL
+    All agents are assigned equal values between 0 and 1 according to a governing equation as specified by **Maternal_Protection_Type**.
+BINARY
+    Agents receive a value of either 0 or 1 (complete immunity or susceptibility) with the probability determined by a governing equation as specified by **Maternal_Protection_Type**. ",".. code-block:: json
+
+    {
+      ""Susceptibility_Type"": ""FRACTIONAL"",
+      ""Enable_Maternal_Protection"": 1,
+      ""Maternal_Protection_Type"": ""LINEAR_FRACTIONAL""
+    }
+"
+"Transmission_Blocking_Immunity_Decay_Rate","float","0","1000","0.001","The rate at which transmission-blocking immunity decays after the base transmission-blocking immunity offset period. Used only when **Enable_Immunity** and **Enable_Immune_Decay** parameters are set to true (1).",".. code-block:: json
+
+    {
+      ""Transmission_Blocking_Immunity_Decay_Rate"": 0.01
+    }
+"
+"Transmission_Blocking_Immunity_Duration_Before_Decay","float","0","45000","0","The number of days after infection until transmission-blocking immunity begins to decay. Only used when **Enable_Immunity** and **Enable_Immune_Decay** parameters are set to true (1).",".. code-block:: json
+
+    {
+      ""Transmission_Blocking_Immunity_Duration_Before_Decay"": 90
+    }
+"

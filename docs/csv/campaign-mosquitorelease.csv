@@ -1,0 +1,86 @@
+"Cost_To_Consumer","float","0","999999","0","The cost of each mosquito release.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 1.5
+    }
+"
+"Disqualifying_Properties","array of strings","NA","NA","[]","A list of *NodeProperty** key:value pairs that cause an intervention to be aborted (persistent interventions will stop being distributed to nodes with these values). See :ref:`demo-properties` parameters for more information. Generally used to control the flow of health care access. For example, to prevent the same individual from accessing health care via two different routes at the same time.",".. code-block:: json
+
+    {
+      ""Disqualifying_Properties"": [
+        ""InterventionStatus:LostForever""
+      ]
+    }
+"
+"Intervention_Name","string","NA","NA","MosquitoRelease","The optional name used to refer to this intervention as a means to differentiate it from others that use the same class.",".. code-block:: json
+
+    {
+      ""Intervention_Config"": {
+        ""class"": ""MosquitoRelease"",
+        ""Intervention_Name"": ""Sterile male mosquito release""
+      }
+    }
+"
+"New_Property_Value","string","NA","NA","""""","An optional **NodeProperty** key:value pair that will be assigned when the intervention is applied. See :ref:`demo-properties` parameters for more information.",".. code-block:: json
+
+    {
+      ""New_Property_Value"": ""HasHealthCare:YES""
+    }
+"
+"Released_Fraction","float","0","1","0","The fraction of the current population of mosquitoes to relEase (the population from the previous time step) The population depends on the gender of the mosquitoes being released. This depends on Released_Type being set to FRACTION.",".. code-block:: json
+
+    {
+      ""Released_type"": ""FRACTION"",
+      ""Released_Fraction"": 0.4
+    }
+"
+"Released_Genome","array of strings","NA","NA","[]","This defines the alleles of the genome of the vectors to be released. It must define all of the alleles including the gender gene. '*' is not allowed. See **Vector_Species_Params** for more information.",".. code-block:: json
+
+    {
+      ""Released_Genome"": [
+        [
+          ""X"",
+          ""X""
+        ],
+        [
+          ""b0"",
+          ""b0""
+        ]
+      ]
+    }
+"
+"Released_Infectious","float","0","1","0","The fraction of vectors released that are to be infectious. You can only use this feature when **Malaria_Model** is NOT set to MALARIA_MECHANISTIC_MODEL_WITH_PARASITE_GENETICS.",".. code-block:: json
+
+    {
+      ""Released_Infectious"": 0.6
+    }
+"
+"Released_Number","integer","1","100000000.0","10000","The number of mosquitoes released in the intervention.",".. code-block:: json
+
+    {
+      ""Released_Number"": 10000
+    }
+"
+"Released_Species","string","NA","NA","NA","The name of the released mosquito species, such as *arabiensis*. The simulation configuration parameter, **Vector_Species_Params**, needs to contain that specific mosquito species.",".. code-block:: json
+
+    {
+      ""Released_Species"": ""gambiae""
+    }
+"
+"Released_Type","enum","NA","NA","FIXED_NUMBER","Specifies the number of mosquitoes to release. Possible values are FRACTION and FIXED_NUMBER. When set to FRACTION, this specifies the fraction of the current population to release. When set to FIXED_NUMBER, specifies an exact count of mosquitoes to release.",".. code-block:: json
+
+    {
+      ""Released_Type"": ""FIXED_NUMBER""
+    }
+"
+"Released_Wolbachia","enum","NA","NA","WOLBACHIA_FREE","The Wolbachia type of released mosquitoes. Possible values are:
+
+* WOLBACHIA_FREE
+* VECTOR_WOLBACHIA_A
+* VECTOR_WOLBACHIA_B
+* VECTOR_WOLBACHIA_AB",".. code-block:: json
+
+    {
+      ""Released_Wolbachia"": ""VECTOR_WOLBACHIA_A""
+    }
+"

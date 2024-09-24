@@ -1,0 +1,51 @@
+"Cost_To_Consumer","float","0","999999","10","The unit cost per trap (unamortized).",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 4.5
+    }
+"
+"Insecticide_Name","string","NA","NA","UNINITIALIZED STRING","The name of the insecticide defined in the configuration parameter **Insecticides**  for this intervention.  If insecticides are being used,  this must be defined as one of those values; if they are not being used this can be empty.  It cannot have a value if you did not configure the configuration parameter **Insecticides**.",".. code-block:: json
+
+    {
+      ""Insecticide_Name"": ""carbamate""
+    }
+"
+"Insecticides","array of json objects","None","None","[]","An array of objects defining the blocking and killing efficacy of each insecticide.",".. code-block:: json
+
+    {
+      ""Insecticides"": [
+        {
+          ""Insecticide_Name"": ""pyrethroid"",
+          ""Killing_Config"": {
+            ""Box_Duration"": 300,
+            ""Initial_Effect"": 1,
+            ""class"": ""WaningEffectBox""
+          }
+        },
+        {
+          ""Insecticide_Name"": ""carbamate"",
+          ""Killing_Config"": {
+            ""Box_Duration"": 300,
+            ""Initial_Effect"": 1,
+            ""class"": ""WaningEffectBox""
+          }
+        }
+      ]
+    }
+"
+"Killing_Config","json object","NA","NA","NA","The configuration of killing efficacy and waning for human host-seeking trap. Only vectors attracted to the trap by the **Attract_Config** settings are targeted by the **Killing_Config**. Specify how this effect decays over time using one of the :doc:`parameter-campaign-waningeffects`.",".. code-block:: json
+
+    {
+      ""Killing_Config"": {
+        ""Box_Duration"": 3650,
+        ""Initial_Effect"": 0.9,
+        ""class"": ""WaningEffectBox""
+      }
+    }
+"
+"Spray_Coverage","float","0","1","0","The proportion of the node that has been sprayed. This value is multiplied by the current efficacy of the **WaningEffect**.",".. code-block:: json
+
+    {
+      ""Cost_To_Consumer"": 4.5
+    }
+"
