@@ -269,7 +269,7 @@ class WeatherDataTests(unittest.TestCase):
         df_all = read_df(self.csv_path)
         for c in df_all.columns:
             df = df_all.copy()
-            df.loc[1, c] = np.NAN   # picking 2nd row is arbitrary
+            df.loc[1, c] = np.nan   # picking 2nd row is arbitrary
             with self.assertRaises(ValueError):
                 WeatherData.from_dataframe(df)
 
