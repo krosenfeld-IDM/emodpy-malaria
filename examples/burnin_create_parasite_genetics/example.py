@@ -124,16 +124,16 @@ def general_sim():
 
     # Check result
     if not experiment.succeeded:
-        print(f"Experiment {experiment.uid} failed.\n")
+        print(f"Experiment {experiment.id} failed.\n")
         exit()
 
-    print(f"Experiment {experiment.uid} succeeded.")
+    print(f"Experiment {experiment.id} succeeded.")
 
     # Save experiment id to file
     with open("experiment_id", "w") as fd:
-        fd.write(experiment.uid.hex)
+        fd.write(experiment.id)
     print()
-    print(experiment.uid.hex)
+    print(experiment.id)
     
     # important bit
     # WE ARE GOING TO USE SERIALIZATION FILES GENERATED IN burnin_create
@@ -148,7 +148,7 @@ def general_sim():
                              include_assets=True,
                              compress_type=CompressType.deflate)
 
-    dl_wi.run(wait_on_done=True, platform=platform)
+    dl_wi.run(wait_until_done=True, platform=platform)
     print("SHOULD BE DOWNLOADED")
 
 
