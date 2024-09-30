@@ -1,6 +1,15 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "GitHub.copilot"
-  }
+  },
+	"customizations": {
+		"vscode": {
+			"extensions": [
+        		"ms-python.python",
+				"ms-toolsai.jupyter",
+				"github.copilot",
+				"charliermarsh.ruff"
+			]
+		}
+	}
 }
