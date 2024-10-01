@@ -41,6 +41,10 @@ To build the documentation locally, do the following:
 You may need to open a new command prompt before running `make html`. The HTML 
 documentation will be output to the docs/_build/html directory. 
 
+or use a github codespace:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/krosenfeld-IDM/emodpy-malaria/tree/devcontainer)
+
 ## FAQ
 
 Frequently asked questions are answered in https://docs.idmod.org/projects/emodpy-malaria/en/latest/faq.html.
