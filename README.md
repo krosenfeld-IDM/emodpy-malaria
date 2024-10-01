@@ -30,11 +30,11 @@ To build the documentation locally, do the following:
 2. Navigate to the root directory of the repo and enter the following:
 
     ```
-    pip install -r requirements.txt
+    pip install -r requirements.txt --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
     cd docs
-    pip install -r requirements.txt
+    pip install -r requirements.txt --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
     cd ..
-    pip install -e .
+    pip install -e . --index-url=https://packages.idmod.org/api/pypi/pypi-production/simple
     cd docs
     make html
     ```
